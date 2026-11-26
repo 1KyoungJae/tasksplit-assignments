@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f8fafc">
+  <meta name="description" content="복잡한 과제를 작은 단계로 나누고 진행률을 확인하세요."><title>과제쪼개기 · 오늘의 할 일을 가볍게</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="styles.css">
+</head>
+<body><div class="app-shell">
+  <aside class="sidebar" aria-label="주 메뉴">
+    <a class="brand" href="#"><span class="brand-mark">✓</span><span class="brand-name">과제쪼개기<small>TASKSPLIT</small></span></a>
+    <div class="nav-label">WORKSPACE</div><nav class="main-nav">
+      <button class="nav-item active" data-filter="all">▦ <span>모든 과제</span><b id="nav-count">0</b></button>
+      <button class="nav-item" data-filter="active">◷ <span>진행 중</span></button><button class="nav-item" data-filter="completed">✓ <span>완료</span></button>
+    </nav><div class="sidebar-bottom"><div class="storage-card"><b>▣</b><div><strong>내 기기에 안전하게</strong><p>과제는 이 브라우저에<br>자동으로 저장돼요.</p></div><i></i></div><div class="profile"><span>배</span> 배수형의 워크스페이스</div></div>
+  </aside>
+  <main class="main-content"><header class="topbar"><div class="breadcrumb">Workspace　›　<strong id="crumb">모든 과제</strong></div><div class="save" id="save-state"><i></i> 자동 저장됨 <span class="avatar">배</span></div></header>
+    <div class="page-wrap"><section class="welcome"><div><small>✳　YOUR PERSONAL WORKSPACE</small><h1 id="hero">하나씩 해내면, 어느새 완성! <em>✦</em></h1><p id="subhero">큰 과제도 작은 단계부터. 지금 할 일에 집중해 보세요.</p></div><button class="primary" id="new-task">＋ <span>새 과제 추가</span></button></section>
+      <section class="summary"><article><i class="blue">▤</i><div><small>전체 과제</small><strong id="total">00</strong> <span>개의 과제</span></div></article><article><i class="mint">↗</i><div><small>진행 중</small><strong id="active">00</strong> <span>개의 과제</span></div></article><article><i class="lilac">✓</i><div><small>완료</small><strong id="done">00</strong> <span>개의 과제</span></div></article></section>
+      <section class="tasks"><div class="section-head"><div><h2 id="list-title">내 과제 <b id="count">0</b></h2><p>차근차근, 하나씩 완성해 봐요.</p></div><div class="controls"><label>⌕ <input id="search" placeholder="과제 검색..." aria-label="과제 검색"></label><select id="sort" aria-label="과제 정렬"><option value="due">마감일순</option><option value="new">최근 추가순</option><option value="progress">진행률순</option></select></div></div><div class="grid" id="grid"></div></section>
+      <footer>작은 시작이 큰 완성을 만들어요 <span>♥</span><small>MADE FOR YOUR NEXT BIG THING</small></footer>
+    </div>
+  </main>
+</div><div class="toast" id="toast" role="status" aria-live="polite"></div>
+<dialog id="form-dialog"><form id="task-form" novalidate><header><div><small>✳ NEW PROJECT</small><h2 id="form-heading">새 과제 만들기</h2><p>큰 목표도 작은 단계로 나눠 시작해요.</p></div><button type="button" class="x" data-close="form">×</button></header><div class="form-body"><label for="title">과제 제목 <i>*</i></label><input id="title" maxlength="50" placeholder="예: 물리학 실험 보고서"><small class="hint">과제 이름을 입력해 주세요. <span id="title-count">0 / 50</span></small><label class="due-label" for="due">마감일 <i>*</i></label><input id="due" type="date"><div class="step-head"><label>세부 작업 <i>*</i></label><small id="step-count">0 / 15</small></div><p class="hint">차근차근 해낼 수 있도록 작은 단계로 나눠봐요.</p><div class="add-step"><span>✳</span><input id="step-input" maxlength="60" placeholder="예: 실험 데이터 정리"><button id="add-step" type="button">+ 추가</button></div><div id="steps"></div><p id="error" role="alert"></p></div><div class="form-actions"><button type="button" class="secondary" data-close="form">취소</button><button class="primary" id="submit-label">과제 등록하기　↗</button></div></form></dialog>
+<dialog id="detail-dialog"></dialog><dialog id="confirm-dialog"><div class="confirm"><span>!</span><h2>이 과제를 삭제할까요?</h2><p>삭제한 과제는 복구할 수 없어요.</p><button class="secondary" id="cancel-delete">취소</button><button class="danger" id="do-delete">삭제하기</button></div></dialog>
+<nav class="mobile-bottom" aria-label="주 메뉴"><button class="active" data-filter="all">▦<span>모든 과제</span></button><button data-filter="active">◷<span>진행 중</span></button><button data-filter="completed">✓<span>완료</span></button></nav>
+<script src="app.js"></script></body></html>
